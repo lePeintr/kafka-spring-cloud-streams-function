@@ -1,0 +1,14 @@
+C:\Users\Administrateur>cd C:\kafka_2.13-3.8.0\bin\windows
+NB: j'utilise la version kafka_2.13-3.2.1
+
+C:\kafka_2.13-3.8.0\bin\windows>start zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+C:\kafka_2.13-3.8.0\bin\windows>start kafka-server-start.bat ..\..\config\server.properties
+
+C:\kafka_2.13-3.8.0\bin\windows>start kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic R1 --from-beginning
+
+C:\kafka_2.13-3.8.0\bin\windows>start kafka-console-producer.bat --broker-list localhost:9092 --topic R1
+
+C:\kafka_2.13-3.8.0\bin\windows>kafka-broker-api-versions.bat --bootstrap-server localhost:9092
+
+C:\kafka_2.13-3.8.0\bin\windows>start kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic R4 --property print.key=true --property print.value=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
